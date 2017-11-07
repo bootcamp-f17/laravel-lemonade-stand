@@ -16,10 +16,10 @@ class CreateResourcesDaysTable extends Migration
         Schema::create('resources_days', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('resource_id')->unsigned();
-            $table->foreign('resource_id')->references('id')->on('resources');
+            $table->foreign('resource_id')->references('id')->on('resources')->onDelete('cascade');
 
             $table->integer('day_id')->unsigned();
-            $table->foreign('day_id')->references('id')->on('days');
+            $table->foreign('day_id')->references('id')->on('days')->onDelete('cascade');
 
             $table->integer('starting_quantity')->unsigned()->default(0);
             $table->integer('ending_quantity')->unsigned()->default(0);

@@ -1,3 +1,11 @@
 .space-right {
   margin-right: 4px;
 }
+
+th {
+	padding:10px;
+}
+
+td {
+	padding:10px;
+}
