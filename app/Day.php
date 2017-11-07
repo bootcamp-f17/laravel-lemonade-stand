@@ -16,8 +16,8 @@ class Day extends Model
       return $this->belongsTo('App\Condition');
     }
 
-    public function resources() {
-      return $this->belongsTo('App\Resources');
-    }
+    // public function resources() {
+    //   return $this->belongsTo('App\Resources');
+    // }
     
 }
