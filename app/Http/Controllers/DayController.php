@@ -24,7 +24,7 @@ class DayController extends Controller
     public function create(Request $request)
     {
         $game = \App\Game::find($request->session()->get('game_id'));
-        $resource = new \App\Resource;
+
 
         if ($request->input('yesterday')) {
             $yesterday = $request->input('yesterday');
@@ -78,8 +78,9 @@ class DayController extends Controller
     public function show($id)
     {
         $day = \App\Day::find($id);
-        return view('days.edit', compact('day'));
-    }
+        $resource = \App\Resource::obtainResources();
+        return view('days.edit', compact('day','resource'));
+    } 
 
     /**
      * Show the form for editing the specified resource.

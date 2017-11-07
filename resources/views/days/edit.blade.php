@@ -2,7 +2,7 @@
 
 @section('title')
   Game {{ $day->game_id }}, Day {{ $day->day }}
-@endsection
+@endsection 
 
 
 @section('content')
@@ -18,11 +18,11 @@
   		<th>Servings</th>
   	</tr>
 
-  	@foreach($resources as $resource)
+  	@foreach($resource as $resources)
   		<tr>
-  			<td>{{ $resource->name }}</td>
-  			<td>{{ $resource->cost }}</td>
-  			<td>{{ $resource->servings }}</td>
+  			<td>{{ $resources->name }}</td>
+  			<td>{{ $resources->cost }}</td>
+  			<td>{{ $resources->servings }}</td>
   		</tr>
 
   	@endforeach
