@@ -10,6 +10,9 @@
 <form method="get" action="/days/create">
   <p><strong>Condition:</strong> {{ $day->condition->name }}</p>
   <p><strong>Temperature:</strong> {{ $day->temperature }}</p>
+@foreach($resource as $resources)  
+  <p><strong>Name:</strong> {{ $resources->name }}</p>
+@endforeach  
   <input type="hidden" name="yesterday" value="{{ $day->day }}">
   <button class="btn btn-sm btn-default" type="submit">New Day</button>
 </form>

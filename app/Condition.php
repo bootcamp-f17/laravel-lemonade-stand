@@ -22,7 +22,6 @@ class Condition extends Model
     public function random_temperature() {
 
       $base = $this->base_temperature;
-
       return (mt_rand($base, $base + 5));
 
     }
