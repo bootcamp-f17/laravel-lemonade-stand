@@ -47,7 +47,6 @@ class DayController extends Controller
 
             $day->save();
 
-            $resource = \App\Resource::getResource();
 
             // return $resource;
 
@@ -83,7 +82,8 @@ class DayController extends Controller
     public function show($id)
     {
         $day = \App\Day::find($id);
-        return view('days.edit', compact('day'));
+        $resource = \App\Resource::getResource();
+        return view('days.edit', compact('day', 'resource'));
     }
 
     /**

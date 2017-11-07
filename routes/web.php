@@ -22,3 +22,4 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('games', 'GameController');
 
 Route::resource('days', 'DayController');
+

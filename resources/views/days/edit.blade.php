@@ -12,7 +12,21 @@
   <p><strong>Temperature:</strong> {{ $day->temperature }}</p>
   <hr>
   <h3>Resources:</h3>
-  <p><strong>Cups</strong></p>
+
+  <ul>
+  @foreach ($resource as $resources)
+
+  <ul>
+  	<h3>{{ $resources->name }}</h3>
+  	<li> Price: {{ $resources->cost }} </li>
+  	<li> Makes {{ $resources->servings }} servings </li>
+  	<li> Description: {{ $resources->description }} </li>
+  	<li> Expires in {{ $resources->expires_in_days }} days </li>
+
+  </ul>
+
+  @endforeach
+  </ul>
 
   <input type="hidden" name="yesterday" value="{{ $day->day }}">
   <button class="btn btn-sm btn-default" type="submit">New Day</button>
