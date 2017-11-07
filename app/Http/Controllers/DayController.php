@@ -46,6 +46,11 @@ class DayController extends Controller
             $day->temperature = $condition->random_temperature();
 
             $day->save();
+
+            $resource = \App\Resource::getResource();
+
+            return $resource;
+
             return redirect('/days/' . $day->id);
         }
         else {

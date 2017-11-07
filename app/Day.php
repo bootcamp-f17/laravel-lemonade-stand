@@ -15,5 +15,9 @@ class Day extends Model
     public function condition() {
       return $this->belongsTo('App\Condition');
     }
+
+    public function resources() {
+      return $this->belongsTo('App\Resources');
+    }
     
 }
