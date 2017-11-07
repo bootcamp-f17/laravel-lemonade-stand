@@ -15,4 +15,8 @@ class Game extends Model
     public function current_day() {
       return $this->days()->first();
     }
+
+    public function resources() {
+      return $this->hasMany('App\Resource');
+    }
 }

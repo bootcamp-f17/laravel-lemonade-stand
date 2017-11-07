@@ -57,7 +57,8 @@ class GameController extends Controller
         }
         else {
             $day = $game->current_day();
-            return view('days.edit', compact('game', 'day'));
+            $resource = \App\Resource::getResource();
+            return view('days.edit', compact('game', 'day', 'resource'));
         }
     }
 
