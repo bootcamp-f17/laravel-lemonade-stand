@@ -14,16 +14,18 @@ class Condition extends Model
 
     public static function random_condition() {
 
-      $condition = \App\Condition::find(2);
+      $condition = \App\Condition::find(mt_rand(1, 7));
       return $condition;
 
     }
 
     public function random_temperature() {
 
-      $base = $this->base_temperature;
+      $base = mt_rand($this->base_temperature, ($this->base_temperature +5));
 
-      return $base + 2;
+      //mt_rand($this->base_temperature)
+
+      return $base;
 
     }
 }
