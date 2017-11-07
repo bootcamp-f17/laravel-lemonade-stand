@@ -12,4 +12,18 @@ class Condition extends Model
       return $this->hasMany('App\Day');
     }
 
+    public static function random_condition() {
+
+      $condition = \App\Condition::find(2);
+      return $condition;
+
+    }
+
+    public function random_temperature() {
+
+      $base = $this->base_temperature;
+
+      return $base + 2;
+
+    }
 }
