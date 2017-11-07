@@ -14,7 +14,7 @@
   
   <ul>
 	  @foreach ($resources as $resource)
-	  <li>{{ $resource->name }}</li>
+	  <li>{{ $resource }}</li>
 	  @endforeach 
 	  </ul>
 
