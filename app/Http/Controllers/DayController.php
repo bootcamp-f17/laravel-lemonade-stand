@@ -47,7 +47,7 @@ class DayController extends Controller
            //$day->temperature = $condition->random_temperature();
            $temperature = \App\Condition::random_temperature();
 
-            $day->temperature = $condition->base_temperature;
+            $day->temperature = $condition->base_temperature + rand (  1 ,  5 );
 
             $day->save();
             return redirect('/days/' . $day->id);

@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\DB;
 
 class Condition extends Model
 {
+
     //
 
     public function days() {
@@ -26,9 +27,6 @@ class Condition extends Model
     }
 
     public static function random_temperature() {
-      $base = $this->base_temperature;
-
-      return $base + 2;
 
     }
 }
