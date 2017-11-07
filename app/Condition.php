@@ -23,7 +23,7 @@ class Condition extends Model
 
       $base = $this->base_temperature;
 
-      return $base + 2;
+      return (mt_rand($base, $base + 5));
 
     }
 }
