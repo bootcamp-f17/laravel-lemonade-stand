@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use DB;
 
 class DayController extends Controller
 {
@@ -113,7 +114,14 @@ class DayController extends Controller
     public function show($id)
     {
 
-        $resources = \App\Resource_Day::where('day_id', $id);
+        //$resources = \App\Resource_Day::where('day_id', $id)->get();
+
+        $resources = DB::table('resources_days')
+            ->join('resources', 'resources_days.resource_id', '=', 'resources.id')
+            ->select('resources_days.*', 'resources.name as name')
+            ->where('day_id',$id)
+            ->get();
+
         $day = \App\Day::find($id);
 
         return view('days.edit', compact('day', 'resources'));

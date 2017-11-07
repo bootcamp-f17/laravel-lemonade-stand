@@ -12,11 +12,24 @@
   <p><strong>Temperature:</strong> {{ $day->temperature }}</p>
   <input type="hidden" name="yesterday" value="{{ $day->day }}">
   
-  <ul>
+<table>
+	<thead>
+		<th>Resource</th>
+		<th>Starting Quantity</th>
+		<th>Purchased Quantity</th>
+		<th>Ending Quantity</th>
+	</thead>
+	
 	  @foreach ($resources as $resource)
-	  <li>{{ $resource }}</li>
+	  <tbody>
+	  <td>{{ $resource->name }}</td>
+	  <td>{{ $resource->starting_quantity }}</td>
+	  <td>{{ $resource->purchased_quantity }}</td>
+	  <td>{{ $resource->ending_quantity }}</td>
+	  </tbody>
 	  @endforeach 
-	  </ul>
+	
+</table>
 
   <button class="btn btn-sm btn-default" type="submit">New Day</button>
 </form>
