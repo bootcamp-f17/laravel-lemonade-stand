@@ -18,8 +18,8 @@ class CreateResourcesTable extends Migration
             $table->string('name');
             $table->text('description');
             $table->decimal('cost', 4, 2);
-            $table->integer('servings');
-            $table->integer('expires_in_days');
+            $table->decimal('servings', 4, 2 )->nullable();
+            $table->integer('expires_in_days')->nullable();
             $table->timestamps();
         });
     }
