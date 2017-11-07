@@ -49,7 +49,7 @@ class DayController extends Controller
 
             $resource = \App\Resource::getResource();
 
-            return $resource;
+            // return $resource;
 
             return redirect('/days/' . $day->id);
         }

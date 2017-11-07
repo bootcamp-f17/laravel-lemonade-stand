@@ -12,7 +12,7 @@
   <p><strong>Temperature:</strong> {{ $day->temperature }}</p>
   <hr>
   <h3>Resources:</h3>
-  <p><strong>Cups</strong> {{ $resource-> }}</p>
+  <p><strong>Cups</strong></p>
 
   <input type="hidden" name="yesterday" value="{{ $day->day }}">
   <button class="btn btn-sm btn-default" type="submit">New Day</button>
