@@ -14,7 +14,7 @@ class Condition extends Model
 
     public static function random_condition() {
 
-      $condition = \App\Condition::find(2);
+      $condition = \App\Condition::find(rand(0, 6));
       return $condition;
 
     }
