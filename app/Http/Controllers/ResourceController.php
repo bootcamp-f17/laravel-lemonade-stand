@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class DayController extends Controller
+class ResourceController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +13,8 @@ class DayController extends Controller
      */
     public function index()
     {
-        //
+        $resources = \App\Resource::all();
+        return view('days.edit',compact('resources'));
     }
 
     /**
@@ -21,42 +22,9 @@ class DayController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Request $request)
+    public function create()
     {
-        $game = \App\Game::find($request->session()->get('game_id'));
-
-        if ($request->input('yesterday')) {
-            $yesterday = $request->input('yesterday');
-        }
-        else {
-            $yesterday = 0;
-        }
-
-
-        // Is there time left in the game?
-        if ($yesterday < $game->last_day) {
-            // Yes - make a new day
-            
-            $day = new \App\Day;
-            $day->day = $yesterday + 1;
-            $day->game_id = $game->id;
-            
-            $condition = \App\Condition::random_condition();
-
-            $day->condition_id = $condition->id;
-            $day->temperature = $condition->random_temperature();
-
-            $day->save();
-            return redirect('/days/' . $day->id);
-        }
-        else {
-            // No - close this game
-            $game->is_done = true;
-            $game->save();
-        }
-
-        return redirect('/home');
-
+        //
     }
 
     /**
@@ -78,9 +46,7 @@ class DayController extends Controller
      */
     public function show($id)
     {
-        $resources = \App\Resource::all();
-        $day = \App\Day::find($id);
-        return view('days.edit', compact('day', 'resources'));
+        //
     }
 
     /**
@@ -116,5 +82,4 @@ class DayController extends Controller
     {
         //
     }
-
 }

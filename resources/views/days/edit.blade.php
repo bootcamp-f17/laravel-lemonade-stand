@@ -11,7 +11,16 @@
   <p><strong>Condition:</strong> {{ $day->condition->name }}</p>
   <p><strong>Temperature:</strong> {{ $day->temperature }}</p>
   <input type="hidden" name="yesterday" value="{{ $day->day }}">
+  
+  <ul>
+	  @foreach ($resources as $resource)
+	  <li>{{ $resource->name }}</li>
+	  @endforeach 
+	  </ul>
+
   <button class="btn btn-sm btn-default" type="submit">New Day</button>
 </form>
+
+
 
 @endsection

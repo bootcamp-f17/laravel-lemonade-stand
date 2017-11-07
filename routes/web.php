@@ -22,3 +22,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('games', 'GameController');
 
 Route::resource('days', 'DayController');
+
+// Route::resource('days/{id}', 'ResourcesController@index');
+// Route::resource('games/{id}', 'ResourcesController@index');
