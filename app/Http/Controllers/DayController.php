@@ -43,7 +43,11 @@ class DayController extends Controller
             $condition = \App\Condition::random_condition();
 
             $day->condition_id = $condition->id;
-            $day->temperature = $condition->random_temperature();
+           //$day->temperature = 90;
+           //$day->temperature = $condition->random_temperature();
+           $temperature = \App\Condition::random_temperature();
+
+            $day->temperature = $condition->base_temperature;
 
             $day->save();
             return redirect('/days/' . $day->id);
@@ -78,7 +82,7 @@ class DayController extends Controller
     public function show($id)
     {
         $day = \App\Day::find($id);
-        return view('days.edit', compact('day'));
+        return view('days.edit', compact('day', 'condition'));
     }
 
     /**
