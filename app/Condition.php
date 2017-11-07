@@ -14,7 +14,9 @@ class Condition extends Model
 
     public static function random_condition() {
 
-      $condition = \App\Condition::find(2);
+      $random_condition_id = rand(1,7);
+
+      $condition = \App\Condition::find($random_condition_id);
       return $condition;
 
     }
@@ -23,7 +25,9 @@ class Condition extends Model
 
       $base = $this->base_temperature;
 
-      return $base + 2;
+
+      // $base = $this->rand(base_temperature,(base_temperature + 10));
+      return $base + rand(0,10);
 
     }
 }
