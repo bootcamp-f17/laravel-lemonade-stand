@@ -24,6 +24,7 @@ class DayController extends Controller
     public function create(Request $request)
     {
         $game = \App\Game::find($request->session()->get('game_id'));
+        $resource = new \App\Resource;
 
         if ($request->input('yesterday')) {
             $yesterday = $request->input('yesterday');
@@ -31,7 +32,6 @@ class DayController extends Controller
         else {
             $yesterday = 0;
         }
-
 
         // Is there time left in the game?
         if ($yesterday < $game->last_day) {
