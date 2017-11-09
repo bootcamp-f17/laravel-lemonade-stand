@@ -127,11 +127,22 @@ class DayController extends Controller
         // TODO: we need to figure out what was spent on resources
         $lemons = \App\Resource::where('name', '=', 'Lemons')->first();
         $today_lemons = $request->input('resourceLemons') ? $request->input('resourceLemons') : 0;
+
+error_log($request->input('resourceLemons'));
+error_log($today_lemons);
+
+error_log($lemons->cost);
+
         if ($today_lemons < 0) {
             $today_lemons = 0;
+error_log("Can't buy negative lemons, you stinker!");
         }
+
+
         if ( ($today_lemons * $lemons->cost) > $day->starting_balance) {
             $today_lemons = floor($day->starting_balance / $lemons->cost);
+error_log("Trying to buy too many lemons!");
+error_log("New amount is " . $today_lemons);
         }
 
 
@@ -155,7 +166,7 @@ class DayController extends Controller
         // TODO: we need to figure out what we earned by selling lemonade
         $day->cups_sold = $this->_random_cups_sold();
 
-        $day->ending_balance = $day->starting_balance + ($day->cups_sold * $day->price);
+        $day->ending_balance = $day->ending_balance + ($day->cups_sold * $day->price);
 
         $day->save();
         $request->session()->put('yesterday', $day->day);
